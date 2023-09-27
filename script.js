@@ -1,13 +1,14 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
+// Creates random number to add to the password
 function randomNumber()
 {
  var rnum = Math.floor(Math.random() * 10);
  return rnum;
 }
 
+// Creates symbol string and pulls a character randomly to add to the password
 function randomSymbol()
 {
   var rnum = Math.floor(Math.random() * 30); 
@@ -16,6 +17,7 @@ function randomSymbol()
   return rsym;
 }
 
+// Creates lowercase alphabet string and pulls a character randomly to add to the password
 function randomLower()
 {
   var rnum = Math.floor(Math.random() * 26); 
@@ -24,6 +26,7 @@ function randomLower()
   return rlow;
 }
 
+// Creates uppercase alphabet string and pulls a character randomly to add to the password
 function randomUpper()
 {
   var rnum = Math.floor(Math.random() * 26); 
@@ -35,7 +38,9 @@ function randomUpper()
 function generatePassword()
 {
   var pwinput = prompt("How long do you want your password to be?(use a number between 8 and 128)");
+  // Taking the password length and pulling out the Absolute value and removing any decimal by rounding it down and turning pwinput into a number if possible
   var pwlength = Math.abs(Math.floor(Number(pwinput))); 
+  // Testing for failure making, If the password length is not a Number, less than 8, or greater than 128, function returns
   if (isNaN(pwlength)|| pwlength < 8 || pwlength > 128) 
   {
     alert("You failed to enter a number between 8 and 128") ;
@@ -48,9 +53,12 @@ function generatePassword()
   var nextchar = 0;
   var charcount = 0;
   genpass = "";
+  // Checks to see if at least one character type was selected to continue
   if ((pwlower) || (pwupper) || (pwnumeric) || (pwsymbol))
   {
     console.log ("Before While");
+    // used While instead of For because I only wanted to count a loop IF a random character was added to length
+    // Does a random number to try and call a chara to be added to the string and if that type was selected by the random number and user it will add it
     while (charcount < pwlength)
     {
      nextChar = Math.floor(Math.random() * 4);
