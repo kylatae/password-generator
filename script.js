@@ -56,7 +56,6 @@ function generatePassword()
   // Checks to see if at least one character type was selected to continue
   if ((pwlower) || (pwupper) || (pwnumeric) || (pwsymbol))
   {
-    console.log ("Before While");
     // used While instead of For because I only wanted to count a loop IF a random character was added to length
     // Does a random number to try and call a chara to be added to the string and if that type was selected by the random number and user it will add it
     while (charcount < pwlength)
